@@ -36,7 +36,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 1920px;
+            width: 100%;
             height: 207px;
             padding: 0.5px;
             background: #ffffff;
@@ -121,17 +121,17 @@
         .top-divider {
             top: 207px;
             left: 144px;
-            width: 1632px;
+            width: calc(100% - 288px);
             height: 1px;
         }
         .footer-divider {
             bottom: 112.5px;
             left: 144px;
-            width: 1632px;
+            width: calc(100% - 432px); /* Adjusted to be shorter from the right by 144px */
             height: 1px;
         }
         footer {
-            width: 1920px;
+            width: 100%;
             height: 112.5px;
             background: white;
             display: flex;
@@ -151,7 +151,7 @@
         .footer-squares {
             position: absolute;
             bottom: 38px;
-            left: 1634px;
+            right: 288px; /* Adjusted to align with the red squares and plus box */
             display: flex;
         }
         .footer-squares div {
@@ -272,6 +272,103 @@
         .name span, .subtitle span {
             /* Remove the hover effect */
             transition: none;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .logo {
+                left: 72px;
+            }
+            .name, .subtitle {
+                left: 150px;
+            }
+            .grid-icon {
+                right: 72px;
+            }
+            .top-divider, .footer-divider {
+                left: 72px;
+                width: calc(100% - 144px);
+            }
+            .about-box, .work-box, .services-box, .plus-box {
+                left: 72px;
+                right: 72px;
+                width: auto;
+            }
+            .about-box:hover, .work-box:hover, .services-box:hover, .plus-box:hover {
+                width: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                left: 36px;
+            }
+            .name, .subtitle {
+                left: 75px;
+            }
+            .grid-icon {
+                right: 36px;
+            }
+            .top-divider, .footer-divider {
+                left: 36px;
+                width: calc(100% - 72px);
+            }
+            .about-box, .work-box, .services-box, .plus-box {
+                left: 36px;
+                right: 36px;
+                width: auto;
+            }
+            .about-box:hover, .work-box:hover, .services-box:hover, .plus-box:hover {
+                width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                left: 18px;
+            }
+            .name, .subtitle {
+                left: 37px;
+            }
+            .grid-icon {
+                right: 18px;
+            }
+            .top-divider, .footer-divider {
+                left: 18px;
+                width: calc(100% - 36px);
+            }
+            .about-box, .work-box, .services-box, .plus-box {
+                left: 18px;
+                right: 18px;
+                width: auto;
+            }
+            .about-box:hover, .work-box:hover, .services-box:hover, .plus-box:hover {
+                width: auto;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .logo {
+                left: 10px;
+            }
+            .name, .subtitle {
+                left: 20px;
+            }
+            .grid-icon {
+                right: 10px;
+            }
+            .top-divider, .footer-divider {
+                left: 10px;
+                width: calc(100% - 20px);
+            }
+            .about-box, .work-box, .services-box, .plus-box {
+                left: 10px;
+                right: 10px;
+                width: auto;
+            }
+            .about-box:hover, .work-box:hover, .services-box:hover, .plus-box:hover {
+                width: auto;
+            }
         }
     </style>
 </head>
