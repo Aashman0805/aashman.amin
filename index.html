@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aashman Amin | Industrial Designer</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @font-face {
+            font-family: 'Avenir Next Demi';
+            src: url('fonts/AvenirNextDemi.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'Avenir Next Reg';
+            src: url('fonts/AvenirNextReg.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'Avenir Next Light';
+            src: url('fonts/AvenirNextLight.otf') format('opentype');
+        }
+        body {
+            font-family: 'Avenir Next Reg', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #ffffff;
+            width: 100%;
+            min-height: 900px;
+            overflow-y: auto;
+        }
+        .content {
+            flex: 1;
+            position: relative;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 1920px;
+            height: 207px;
+            padding: 0.5px;
+            background: #ffffff;
+            color: white;
+            position: relative;
+        }
+        .logo {
+            width: 139px;
+            height: 139px;
+            background: #394053;
+            position: absolute;
+            top: 32px;
+            left: 144px;
+        }
+        .name, .subtitle {
+            display: flex;
+            position: absolute;
+            left: 299px;
+        }
+        .name {
+            top: 32px;
+            font-family: 'Avenir Next Demi', Arial, sans-serif;
+            font-size: 50px;
+            gap: 16px;
+        }
+        .name span {
+            background: rgba(131, 144, 115, 0.7);
+            width: 87px;
+            height: 87px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        .name span:nth-child(n+8) {
+            background: rgb(131, 144, 115);
+        }
+        .subtitle {
+            top: 135px;
+            font-family: 'Avenir Next Light', Arial, sans-serif;
+            font-size: 20px;
+        }
+        .subtitle span {
+            background: rgba(57, 64, 83, 0.8);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        .subtitle span:nth-child(n+11) {
+            background: rgb(57, 64, 83);
+        }
+        .subtitle span:not(:last-child) {
+            margin-right: 15px;
+        }
+        .subtitle span:nth-child(even):not(:last-child) {
+            margin-right: 16px;
+        }
+        .grid-icon {
+            position: absolute;
+            top: 32px;
+            right: 144px;
+            display: grid;
+            grid-template-columns: repeat(4, 22.75px);
+            grid-template-rows: repeat(4, 22.75px);
+            gap: 17.5px;
+        }
+        .grid-icon div {
+            width: 22.75px;
+            height: 22.75px;
+            background: #C44536;
+            cursor: pointer;
+        }
+        .divider {
+            position: absolute;
+            background: #929292;
+        }
+        .top-divider {
+            top: 207px;
+            left: 144px;
+            width: 1632px;
+            height: 1px;
+        }
+        .footer-divider {
+            bottom: 112.5px;
+            left: 144px;
+            width: 1632px;
+            height: 1px;
+        }
+        footer {
+            width: 1920px;
+            height: 112.5px;
+            background: white;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding-left: 144px;
+            padding-bottom: 32px;
+            font-family: 'Avenir Next Demi', Arial, sans-serif;
+            font-size: 20px;
+            line-height: 24px;
+            color: #C45A4D;
+            text-align: left;
+        }
+        .footer-squares {
+            position: absolute;
+            bottom: 38px;
+            left: 1634px;
+            display: flex;
+        }
+        .footer-squares div {
+            width: 36px;
+            height: 36px;
+            background: #505666;
+            transition: opacity 0.3s;
+        }
+        .footer-squares div:nth-child(2) {
+            margin-left: 17px;
+        }
+        .footer-squares div:nth-child(3) {
+            margin-left: 18px;
+        }
+        .footer-squares div:hover {
+            opacity: 0.6;
+        }
+        .box {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Avenir Next Demi', Arial, sans-serif;
+            font-size: 20px;
+            color: #505666;
+            text-align: center;
+            letter-spacing: 25px;
+            padding-left: 5px;
+            transition: width 0.3s ease, left 0.3s ease, right 0.3s ease; /* Smooth transition for scaling and moving */
+        }
+        .about-box {
+            top: 239px;
+            left: 144px;
+            width: 345px;
+            height: 87px;
+            background-color: #E0D2C3;
+        }
+        .about-box:hover {
+            width: calc(345px * 1.074); /* Increase width by 7.4% */
+        }
+        .about-box:hover ~ .work-box {
+            left: calc(144px + 345px * 1.074 + 16px); /* Move WORK button to the right */
+        }
+        .about-box:hover ~ .work-box ~ .services-box {
+            left: calc(144px + 345px * 1.074 + 16px + 294px + 16px); /* Move SERVICES button to the right */
+        }
+        .about-box a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .work-box {
+            top: 239px;
+            left: calc(144px + 345px + 16px); /* Adjust left position */
+            width: 294px;
+            height: 87px;
+            background-color: #E0D2C3;
+        }
+        .work-box:hover {
+            width: calc(294px * 1.074); /* Increase width by 7.4% */
+        }
+        .work-box:hover ~ .services-box {
+            left: calc(144px + 345px + 16px + 294px * 1.074 + 16px); /* Move SERVICES button to the right */
+        }
+        .work-box a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .services-box {
+            top: 239px;
+            left: calc(144px + 345px + 16px + 294px + 16px); /* Adjust left position */
+            width: 500px;
+            height: 87px;
+            background-color: #E0D2C3;
+        }
+        .services-box:hover {
+            width: calc(500px * 1.074); /* Increase width by 7.4% */
+        }
+        .plus-box {
+            top: 239px;
+            right: 143px;
+            width: 143px;
+            height: 87px;
+            background-color: #E0D2C3;
+            font-size: 30px;
+            text-indent: 18px; /* Added text-indent to shift the text */
+            transform-origin: center; /* Keep the center same */
+        }
+        .plus-box:hover {
+            width: calc(143px * 1.074); /* Increase width by 7.4% */
+        }
+        /* Custom scrollbar styles */
+        body::-webkit-scrollbar {
+            width: 8px; /* Sleeker width */
+            height: 0; /* Remove horizontal scrollbar */
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #394053; /* Darker color for the thumb */
+            border-radius: 4px; /* Rounded corners */
+        }
+
+        body::-webkit-scrollbar-track {
+            background-color: #E0D2C3; /* Lighter color for the track */
+            border-radius: 4px; /* Rounded corners */
+        }
+        .name span, .subtitle span {
+            /* Remove the hover effect */
+            transition: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <div class="name">
+            <span>A</span><span>A</span><span>S</span><span>H</span><span>M</span><span>A</span><span>N</span>
+            <span>A</span><span>M</span><span>I</span><span>N</span>
+        </div>
+        <div class="grid-icon">
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="top-divider divider"></div>
+    </header>
+    <div class="subtitle">
+        <span>I</span><span>N</span><span>D</span><span>U</span><span>S</span><span>T</span><span>R</span><span>I</span><span>A</span><span>L</span>
+        <span>D</span><span>E</span><span>S</span><span>I</span><span>G</span><span>N</span><span>E</span><span>R</span>
+    </div>
+    <div class="about-box box">
+        <a href="about.html">ABOUT</a>
+    </div>
+    <div class="work-box box">
+        <a href="work.html">WORK</a>
+    </div>
+    <div class="services-box box">SERVICES</div>
+    <div class="plus-box box">+</div>
+    <footer>
+        <div>
+            aashmanamin0805@gmail.com<br>
+            +91 99787 65498
+        </div>
+        <div class="footer-squares">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="footer-divider divider"></div>
+    </footer>
+    <script>
+        document.querySelectorAll('.grid-icon div').forEach(square => {
+            square.addEventListener('click', () => {
+                const currentColor = getComputedStyle(square).backgroundColor;
+                if (currentColor === 'rgb(196, 69, 54)') {
+                    square.style.backgroundColor = '#ffffff';
+                } else {
+                    square.style.backgroundColor = '#C44536';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
