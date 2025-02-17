@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Urban Indian Swing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="work.css">
+    <style>
+        @font-face {
+            font-family: 'Avenir Next Demi';
+            src: url('fonts/AvenirNextDemi.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'Avenir Next Reg';
+            src: url('fonts/AvenirNextReg.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'Avenir Next Light';
+            src: url('fonts/AvenirNextLight.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'Gotham';
+            src: url('fonts/Gotham.otf') format('opentype');
+        }
+        body {
+            font-family: 'Avenir Next Reg', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #ffffff;
+            width: 100%;
+            min-height: 900px;
+            overflow-y: auto;
+            overflow-x: hidden; /* Remove horizontal scrollbar */
+        }
+        body::-webkit-scrollbar {
+            width: 8px; /* Sleeker width */
+            height: 0; /* Remove horizontal scrollbar */
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #394053; /* Darker color for the thumb */
+            border-radius: 4px; /* Rounded corners */
+        }
+        body::-webkit-scrollbar-track {
+            background-color: #E0D2C3; /* Lighter color for the track */
+            border-radius: 4px; /* Rounded corners */
+        }
+        .content {
+            flex: 1;
+            position: relative;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 207px;
+            padding: 0.5px;
+            background: #ffffff;
+            color: white;
+            position: relative;
+            opacity: 0.2;
+        }
+        .logo {
+            width: 139px;
+            height: 139px;
+            background: #394053;
+            position: absolute;
+            top: 32px;
+            left: 144px;
+        }
+        .name, .subtitle {
+            display: flex;
+            position: absolute;
+            left: 299px;
+        }
+        .name {
+            top: 32px;
+            font-family: 'Avenir Next Demi', Arial, sans-serif;
+            font-size: 50px;
+            gap: 16px;
+        }
+        .name span {
+            background: rgba(131, 144, 115, 0.7);
+            width: 87px;
+            height: 87px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        .name span:nth-child(n+8) {
+            background: rgb(131, 144, 115);
+        }
+        .subtitle {
+            top: 135px;
+            font-family: 'Avenir Next Light', Arial, sans-serif;
+            font-size: 20px;
+        }
+        .subtitle span {
+            background: rgba(57, 64, 83, 0.8);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        .subtitle span:nth-child(n+11) {
+            background: rgb(57, 64, 83);
+        }
+        .subtitle span:not(:last-child) {
+            margin-right: 15px;
+        }
+        .subtitle span:nth-child(even):not(:last-child) {
+            margin-right: 16px;
+        }
+        .grid-icon {
+            position: absolute;
+            top: 32px;
+            right: 144px;
+            display: grid;
+            grid-template-columns: repeat(4, 22.75px);
+            grid-template-rows: repeat(4, 22.75px);
+            gap: 17.5px;
+        }
+        .grid-icon div {
+            width: 22.75px;
+            height: 22.75px;
+            background: #C44536;
+            cursor: pointer;
+        }
+        .divider {
+            position: absolute;
+            background: #929292;
+        }
+        .top-divider {
+            top: 207px;
+            left: 144px;
+            width: 1632px;
+            height: 1px;
+        }
+        .box {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Avenir Next Demi', Arial, sans-serif;
+            font-size: 20px;
+            color: #505666;
+            text-align: center;
+            letter-spacing: 25px;
+            padding-left: 5px;
+        }
+        .rectangle {
+            position: absolute;
+            top: 34px;
+            left: 0;
+            width: 1920px;
+            height: 800px;
+            background-color: rgba(217, 207, 196, 0.2); /* Use rgba for 20% opacity */
+        }
+        .scroll-left {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 30px;
+            height: 793px;
+            background-color: rgba(220, 208, 196, 0.4); /* Use rgba for 40% opacity */
+            z-index: 10; /* Ensure it is above other elements */
+            cursor: pointer; /* Indicate it is clickable */
+        }
+
+        .scroll-left:hover {
+            background-color: rgba(57, 64, 83, 0.4); /* 40% opacity #394053 */
+        }
+
+        .scroll-left:hover .inner-square {
+            background-color: #394053; /* Change color to #394053 */
+        }
+
+        .scroll-left .inner-square {
+            position: absolute;
+            bottom: 0; /* Align to the bottom of the rectangle */
+            width: 30px;
+            height: 30px;
+            background-color: #DCD0C4; /* Change color to #DCD0C4 */
+        }
+
+        .scroll-right {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 30px;
+            height: 793px;
+            background-color: rgba(220, 208, 196, 0.4); /* Use rgba for 40% opacity */
+            z-index: 10; /* Ensure it is above other elements */
+            cursor: pointer; /* Indicate it is clickable */
+        }
+
+        .scroll-right:hover {
+            background-color: rgba(57, 64, 83, 0.4); /* 40% opacity #394053 */
+        }
+
+        .scroll-right:hover .inner-square {
+            background-color: #394053; /* Change color to #394053 */
+        }
+
+        .scroll-right .inner-square {
+            position: absolute;
+            bottom: 0; /* Align to the bottom of the rectangle */
+            width: 30px;
+            height: 30px;
+            background-color: #DCD0C4; /* Change color to #DCD0C4 */
+        }
+
+        .scroll-container {
+            position: absolute;
+            top: 36px;
+            left: 0;
+            width: 1920px;
+            height: calc(100vh - 70px); /* Adjust height to fit within viewport */
+            display: flex;
+            overflow-x: hidden; /* Hide the scrollbar */
+            padding: 0 144px;
+            box-sizing: border-box;
+        }
+
+        .scroll-square {
+            width: 1030px;
+            height: 728px;
+            margin-right: 15.5px;
+            flex-shrink: 0;
+            position: relative; /* Ensure text is positioned relative to the square */
+            background-color: white;
+        }
+
+        .scroll-square img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scroll-square:last-child {
+            margin-right: 0;
+        }
+
+        footer {
+            width: 1920px;
+            height: 112.5px;
+            background: transparent;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding-left: 144px;
+            padding-bottom: 32px;
+            font-family: 'Avenir Next Demi', Arial, sans-serif;
+            font-size: 20px;
+            line-height: 24px;
+            color: #C45A4D;
+            text-align: left;
+        }
+        .footer-squares {
+            position: absolute;
+            bottom: 38px;
+            left: 1634px;
+            display: flex;
+        }
+        .footer-squares div {
+            width: 36px;
+            height: 36px;
+            background: #505666;
+            transition: opacity 0.3s;
+        }
+        .footer-squares div:nth-child(2) {
+            margin-left: 17px;
+        }
+        .footer-squares div:nth-child(3) {
+            margin-left: 18px;
+        }
+        .footer-squares div:hover {
+            opacity: 0.6;
+        }
+        .close-button {
+            position: absolute;
+            top: 0px; /* Moved up by 4 px */
+            right: 0;
+            width: 30px;
+            height: 34px;
+            background-color: #394053;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #D9CFC4; /* Dark navy color */
+            font-family: 'Avenir Next Demi', Arial, sans-serif;
+            cursor: pointer;
+            z-index: 100; /* Bring to top */
+        }
+        .close-button span {
+            position: relative;
+            top: -2px; /* Move the "x" up by 4 px */
+        }
+        .close-button:hover {
+            background-color: #D9CFC4; /* Change background color on hover */
+            color: #394053; /* Change text color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="rectangle" style="top: 34px; height: 800px;">
+        <div class="scroll-left" style="top: 0px; height: 800px;">
+            <div class="inner-square"></div>
+        </div>
+        <div class="scroll-right" style="top: 0px; height: 800px;">
+            <div class="inner-square"></div>
+        </div>
+        <div class="scroll-container" style="top: 36px;">
+            <div class="scroll-square"><img src="Urban Indian Swing/01.jpg" alt="Image 01"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/02.jpg" alt="Image 02"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/03.jpg" alt="Image 03"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/04.jpg" alt="Image 04"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/05.jpg" alt="Image 05"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/06.jpg" alt="Image 06"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/07.jpg" alt="Image 07"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/08.jpg" alt="Image 08"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/09.jpg" alt="Image 09"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/10.jpg" alt="Image 10"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/11.jpg" alt="Image 11"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/12.jpg" alt="Image 12"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/13.jpg" alt="Image 13"></div>
+            <div class="scroll-square"><img src="Urban Indian Swing/14.jpg" alt="Image 14"></div>
+        </div>
+    </div>
+    <div class="close-button"><span>x</span></div>
+    <footer>
+        <div>
+            aashmanamin0805@gmail.com<br>
+            +91 99787 65498
+        </div>
+        <div class="footer-squares">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.grid-icon div').forEach(square => {
+            square.addEventListener('click', () => {
+                const currentColor = getComputedStyle(square).backgroundColor;
+                if (currentColor === 'rgb(196, 69, 54)') {
+                    square.style.backgroundColor = '#ffffff';
+                } else {
+                    square.style.backgroundColor = '#C44536';
+                }
+            });
+        });
+
+        document.querySelector('.scroll-left').addEventListener('click', () => {
+            document.querySelector('.scroll-container').scrollBy({
+                left: -1000, // Increased the scroll distance
+                behavior: 'smooth'
+            });
+        });
+
+        document.querySelector('.scroll-right').addEventListener('click', () => {
+            document.querySelector('.scroll-container').scrollBy({
+                left: 1000, // Increased the scroll distance
+                behavior: 'smooth'
+            });
+        });
+
+        document.querySelector('.close-button').addEventListener('click', () => {
+            window.location.href = 'work.html'; // Redirect to work.html
+        });
+    </script>
+</body>
+</html>
